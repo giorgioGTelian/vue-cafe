@@ -1,6 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { createApp } from 'vue'
+import { VueFire, VueFireAuth } from 'vuefire'
+import App from './App.vue'
+import { firebaseApp } from './firebase.js'
+import { VueFire } from "vuefire";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -16,6 +21,17 @@ const firebaseConfig = {
   measurementId: "G-8R3YTMN877"
 };
 
+
+const app = createApp(App)
+app.use(VueFire, {
+  // imported above but could also just be created here
+  firebaseApp,
+  modules: [  ],
+})
+
+app.mount('#app')
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+export const db = firebaseApp.firestore()
+export const firebaseApp = initializeApp(firebaseConfig);
+

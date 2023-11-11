@@ -10,7 +10,8 @@
   "dependencies": {
     "firebase": "^10.6.0",
     "vue": "^3.3.4",
-    "vuefire": "^3.1.18"
+    "vuefire": "^3.1.18",
+    "vuetify": "^3.4.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.4.0",
